@@ -33,3 +33,16 @@ def show_recipes(recipes):
         print(f'{i+1}. {recipe["name"]}')
 
 show_recipes(recipes)
+
+# A way for the user to view the said recipe
+
+def show_recipe_details(recipes, recipe_index):
+    details=f'{recipes[recipe_index]['name']} \n ==== Ingredients ====\n'
+    for ingredient in recipes[recipe_index]['ingredients']:
+        details += f' - {ingredient} \n'
+    details+= '==== Steps ====\n'
+    for step, info in enumerate(recipes[recipe_index]['steps']):
+        details += f'{step+1}. {info} \n'
+
+    return details
+
