@@ -1,7 +1,9 @@
 from recipes import *
 import os
+
 def show_menu():
     while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
         print(show_recipes())
         choice = input(f'''
         1. View Recipe \n
@@ -11,11 +13,9 @@ def show_menu():
         Please select an option from the menu:''')
         choice=choice.strip()
         if not choice.isdigit():
-            print("Please select an option from the menu.")
             continue
         choice=int(choice)
         if choice not in range(1,5):
-            print('Please select an option from the menu.')
             continue
         return choice
 
@@ -54,8 +54,9 @@ def pick_action(action):
             edit_recipe(recipe, change_detail)
             input('Press enter to continue')
             break
-    elif action == 4:
-        pass
+    else:
+        return False
+
 
 
 
@@ -66,9 +67,10 @@ def menu():
         os.system('cls' if os.name == 'nt' else 'clear')
         print("============Welcome to your Recipe Book============")
         choice=show_menu()
-        action=pick_action(choice)
-        if action==' ':
+        if not pick_action(choice):
             break
+
+
 
     print('============Have A Great Day==========')
 

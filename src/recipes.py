@@ -23,7 +23,7 @@ recipes = [
     },
 ]
 
-def show_recipes():
+def show_recipes(recipes=recipes):
     output=''
     for index, details in enumerate(recipes):
         output+= f'{index + 1}. {details["name"]}\n'
@@ -53,4 +53,4 @@ def show_recipe_details(recipe_index):
 
 
 def edit_recipe(recipe_index, details):
-    recipes[recipe_index][list(details)[0]]=details[list(details)[0]]
+    recipes[recipe_index].update(details)

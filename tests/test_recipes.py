@@ -38,17 +38,13 @@ def make_recipe():
     }
 def test_show_recipes_returns_recipe_names():
     '''tests show_recipes returns the list of recipe names'''
-    recipes = make_recipes()
-    assert show_recipes(recipes)=='1. pancakes\n'
+
+    assert show_recipes()=='1. pancakes\n'
 
 def test_show_recipes_tells_if_recipes_is_empty():
     '''tests show_recipes returns lets the user know if there are no recipes'''
-    recipes=[]
-    assert show_recipes(recipes)=='You have no recipes'
-
-def test_show_recipes():
-    test_show_recipes_returns_recipe_names()
-    test_show_recipes_tells_if_recipes_is_empty()
+    empty_recipes=[]
+    assert show_recipes(empty_recipes)=='You have no recipes'
 
 
 
